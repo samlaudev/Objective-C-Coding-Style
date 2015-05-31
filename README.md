@@ -74,7 +74,7 @@ UIColor *myColour = [UIColor whiteColor];
 
 ## 代码组织
 
-Use `#pragma mark -` to categorize methods in functional groupings and protocol/delegate implementations following this general structure.
+在函数分组和protocol/delegate实现中使用`#pragma mark -`来分类方法，遵循以下一般结构：
 
 ```objc
 #pragma mark - Lifecycle
