@@ -57,14 +57,16 @@
 
 ## 语言
 
-US English should be used.
+应该使用US英语.
 
-**Preferred:**
+**应该:**
+
 ```objc
 UIColor *myColor = [UIColor whiteColor];
 ```
 
-**Not Preferred:**
+**不应该:**
+
 ```objc
 UIColor *myColour = [UIColor whiteColor];
 ```
