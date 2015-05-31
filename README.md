@@ -54,7 +54,7 @@
 * [表情符号](#smiley-face)
 * [Xcode工程](#xcode-project)
 
-
+<b id="language"></b>
 ## 语言
 
 应该使用US英语.
@@ -71,10 +71,10 @@ UIColor *myColor = [UIColor whiteColor];
 UIColor *myColour = [UIColor whiteColor];
 ```
 
-
+<b id="code-organization"></b>
 ## 代码组织
 
-在函数分组和protocol/delegate实现中使用`#pragma mark -`来分类方法，遵循以下一般结构：
+在函数分组和protocol/delegate实现中使用`#pragma mark -`来分类方法，要遵循以下一般结构：
 
 ```objc
 #pragma mark - Lifecycle
@@ -116,36 +116,39 @@ UIColor *myColour = [UIColor whiteColor];
 - (NSString *)description {}
 ```
 
+<b id="spacing"></b>
 ## 空格
 
-* Indent using 2 spaces (this conserves space in print and makes line wrapping less likely). Never indent with tabs. Be sure to set this preference in Xcode.
-* Method braces and other braces (`if`/`else`/`switch`/`while` etc.) always open on the same line as the statement but close on a new line.
+* 缩进使用**4**个空格，确保在Xcode偏好设置来设置。(raywenderlich.com使用**2**个空格)
+* 方法大括号和其他大括号(`if`/`else`/`switch`/`while` 等.)总是在同一行语句打开但在新行中关闭。
 
-**Preferred:**
+**应该:**
+
 ```objc
 if (user.isHappy) {
-  //Do something
-} else {
-  //Do something else
-}
-```
-
-**Not Preferred:**
-```objc
-if (user.isHappy)
-{
     //Do something
-}
-else {
+} else {
     //Do something else
 }
 ```
 
-* There should be exactly one blank line between methods to aid in visual clarity and organization. Whitespace within methods should separate functionality, but often there should probably be new methods.
-* Prefer using auto-synthesis. But if necessary, `@synthesize` and `@dynamic` should each be declared on new lines in the implementation.
-* Colon-aligning method invocation should often be avoided.  There are cases where a method signature may have >= 3 colons and colon-aligning makes the code more readable. Please do **NOT** however colon align methods containing blocks because Xcode's indenting makes it illegible.
+**不应该:**
 
-**Preferred:**
+```objc
+if (user.isHappy)
+{
+  //Do something
+}
+else {
+  //Do something else
+}
+```
+
+* 在方法之间应该有且只有一行，这样有利于在视觉上更清晰和更易于组织。在方法内的空白应该分离功能，但通常都抽离出来成为一个新方法。
+* 优先使用auto-synthesis。但如果有必要，`@synthesize` 和 `@dynamic`应该在实现中每个都声明新的一行。
+* 应该避免以冒号对齐的方式来调用方法。因为有时方法签名可能有3个以上的冒号和冒号对齐会使代码更加易读。请**不要**这样做，尽管冒号对齐的方法包含代码块，因为Xcode的对齐方式令它难以辨认。
+
+**应该:**
 
 ```objc
 // blocks are easily readable
@@ -156,7 +159,7 @@ else {
 }];
 ```
 
-**Not Preferred:**
+**不应该:**
 
 ```objc
 // colon-aligning makes the block indentation hard to read
