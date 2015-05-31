@@ -236,13 +236,14 @@ id varnm;
 
 局部变量不应该包含下划线。
 
+<b id="methods"></b>
 ## 方法
 
-In method signatures, there should be a space after the method type (-/+ symbol). There should be a space between the method segments (matching Apple's style).  Always include a keyword and be descriptive with the word before the argument which describes the argument.
+在方法签名中，应该在方法类型(-/+ 符号)之后有一个空格。在方法各个段之间应该也有一个空格(符合Apple的风格)。在参数之前应该包含一个具有描述性的关键字来描述参数。
 
-The usage of the word "and" is reserved.  It should not be used for multiple parameters as illustrated in the `initWithWidth:height:` example below.
+"and"这个词的用法应该保留。它不应该用于多个参数来说明，就像`initWithWidth:height`以下这个例子：
 
-**Preferred:**
+**应该:**
 ```objc
 - (void)setExampleText:(NSString *)text image:(UIImage *)image;
 - (void)sendAction:(SEL)aSelector to:(id)anObject forAllCells:(BOOL)flag;
@@ -250,7 +251,7 @@ The usage of the word "and" is reserved.  It should not be used for multiple par
 - (instancetype)initWithWidth:(CGFloat)width height:(CGFloat)height;
 ```
 
-**Not Preferred:**
+**不应该:**
 
 ```objc
 -(void)setT:(NSString *)text i:(UIImage *)image;
