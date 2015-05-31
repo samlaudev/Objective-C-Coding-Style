@@ -179,62 +179,62 @@ else {
 
 一般都避免使用块注释，因为代码尽可能做到自解释，只有当断断续续或几行代码时才需要注释。*例外：这不应用在生成文档的注释*
 
-
+<b id="naming"></b>
 ## 命名
 
-Apple naming conventions should be adhered to wherever possible, especially those related to [memory management rules](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html) ([NARC](http://stackoverflow.com/a/2865194/340508)).
+Apple命名规则尽可能坚持，特别是与这些相关的[memory management rules](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html) ([NARC](http://stackoverflow.com/a/2865194/340508))。
 
-Long, descriptive method and variable names are good.
+长的，描述性的方法和变量命名是好的。
 
-**Preferred:**
+**应该:**
 
 ```objc
 UIButton *settingsButton;
 ```
 
-**Not Preferred:**
+**不应该:**
 
 ```objc
 UIButton *setBut;
 ```
 
-A three letter prefix should always be used for class names and constants, however may be omitted for Core Data entity names. For any official raywenderlich.com books, starter kits, or tutorials, the prefix 'RWT' should be used.
+三个字符前缀应该经常用在类和常量命名，但在Core Data的实体名中应被忽略。对于官方的raywenderlich.com书、初学者工具包或教程，前缀'RWT'应该被使用。
 
-Constants should be camel-case with all words capitalized and prefixed by the related class name for clarity.
+常量应该使用驼峰式命名规则，所有的单词首字母大写和加上与类名有关的前缀。
 
-**Preferred:**
+**应该:**
 
 ```objc
 static NSTimeInterval const RWTTutorialViewControllerNavigationFadeAnimationDuration = 0.3;
 ```
 
-**Not Preferred:**
+**不应该:**
 
 ```objc
 static NSTimeInterval const fadetime = 1.7;
 ```
 
-Properties should be camel-case with the leading word being lowercase. Use auto-synthesis for properties rather than manual @synthesize statements unless you have good reason.
+属性也是使用驼峰式，但首单词的首字母小写。对属性使用auto-synthesis，而不是手动编写@ synthesize语句，除非你有一个好的理由。
 
-**Preferred:**
+**应该:**
 
 ```objc
 @property (strong, nonatomic) NSString *descriptiveVariableName;
 ```
 
-**Not Preferred:**
+**不应该:**
 
 ```objc
 id varnm;
 ```
+<b id="underscores"></b>
+### 下划线
 
-### Underscores
+当使用属性时，实例变量应该使用`self.`来访问和改变。这就意味着所有属性将会视觉效果不同，因为它们前面都有`self.`。
 
-When using properties, instance variables should always be accessed and mutated using `self.`. This means that all properties will be visually distinct, as they will all be prefaced with `self.`. 
+但有一个特例：在初始化方法里，实例变量(例如，_variableName)应该直接被使用来避免getters/setters潜在的副作用。
 
-An exception to this: inside initializers, the backing instance variable (i.e. _variableName) should be used directly to avoid any potential side effects of the getters/setters.
-
-Local variables should not contain underscores.
+局部变量不应该包含下划线。
 
 ## 方法
 
