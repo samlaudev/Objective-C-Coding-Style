@@ -260,18 +260,18 @@ id varnm;
 - (instancetype)initWithWidth:(CGFloat)width andHeight:(CGFloat)height;
 - (instancetype)initWith:(int)width and:(int)height;  // Never do this.
 ```
-
+<b id="variables"></b>
 ## 变量
 
-Variables should be named as descriptively as possible. Single letter variable names should be avoided except in `for()` loops.
+变量尽量以描述性的方式来命名。单个字符的变量命名应该尽量避免，除了在`for()`循环。
 
-Asterisks indicating pointers belong with the variable, e.g., `NSString *text` not `NSString* text` or `NSString * text`, except in the case of constants.
+星号表示变量是指针。例如， `NSString *text` 既不是 `NSString* text` 也不是 `NSString * text`，除了一些特殊情况下常量。
 
-[Private properties](#private-properties) should be used in place of instance variables whenever possible. Although using instance variables is a valid way of doing things, by agreeing to prefer properties our code will be more consistent. 
+[私有变量](#private-properties) 应该尽可能代替实例变量的使用。尽管使用实例变量是一种有效的方式，但更偏向于使用属性来保持代码一致性。
 
-Direct access to instance variables that 'back' properties should be avoided except in initializer methods (`init`, `initWithCoder:`, etc…), `dealloc` methods and within custom setters and getters. For more information on using Accessor Methods in Initializer Methods and dealloc, see [here](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
+通过使用'back'属性(_variable，变量名前面有下划线)直接访问实例变量应该尽量避免，除了在初始化方法(`init`, `initWithCoder:`, 等…)，`dealloc` 方法和自定义的setters和getters。想了解关于如何在初始化方法和dealloc直接使用Accessor方法的更多信息，查看[这里](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6)
 
-**Preferred:**
+**应该:**
 
 ```objc
 @interface RWTTutorial : NSObject
@@ -281,7 +281,7 @@ Direct access to instance variables that 'back' properties should be avoided exc
 @end
 ```
 
-**Not Preferred:**
+**不应该:**
 
 ```objc
 @interface RWTTutorial : NSObject {
