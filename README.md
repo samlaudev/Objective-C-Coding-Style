@@ -289,35 +289,36 @@ id varnm;
 }
 ```
 
+<b id="property-attributes"></b>
+## 属性特性
 
-## 属性特质
+所有属性特性应该显式地列出来，有助于新手阅读代码。属性特性的顺序应该是storage、atomicity，与在Interface Builder连接UI元素时自动生成代码一致。
 
-Property attributes should be explicitly listed, and will help new programmers when reading the code.  The order of properties should be storage then atomicity, which is consistent with automatically generated code when connecting UI elements from Interface Builder.
-
-**Preferred:**
+**应该:**
 
 ```objc
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (strong, nonatomic) NSString *tutorialName;
 ```
 
-**Not Preferred:**
+**不应该:**
 
 ```objc
 @property (nonatomic, weak) IBOutlet UIView *containerView;
 @property (nonatomic) NSString *tutorialName;
 ```
 
-Properties with mutable counterparts (e.g. NSString) should prefer `copy` instead of `strong`. 
-Why? Even if you declared a property as `NSString` somebody might pass in an instance of an `NSMutableString` and then change it without you noticing that.  
+NSString应该使用`copy` 而不是 `strong`的属性特性。
 
-**Preferred:**
+为什么？即使你声明一个`NSString`的属性，有人可能传入一个`NSMutableString`的实例，然后在你没有注意的情况下修改它。 
+
+**应该:**
 
 ```objc
 @property (copy, nonatomic) NSString *tutorialName;
 ```
 
-**Not Preferred:**
+**不应该:**
 
 ```objc
 @property (strong, nonatomic) NSString *tutorialName;
