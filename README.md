@@ -321,7 +321,7 @@ NSString应该使用`copy` 而不是 `strong`的属性特性。
 
 ```objc
 @property (strong, nonatomic) NSString *tutorialName;
-```不
+```
 
 <b id="dot-notation-syntax"></b>
 ## 点符号语法
