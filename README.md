@@ -42,7 +42,7 @@
 * [Case语句](#case-statements)
 * [私有属性](#private-properties)
 * [布尔值](#booleans)
-* [条件语法](#conditionals)
+* [条件语句](#conditionals)
   * [三元操作符](#ternary-operator)
 * [Init方法](#init-methods)
 * [类构造方法](#class-constructor-methods)
@@ -533,11 +533,13 @@ if (isAwesome == true) {} // Never do this.
 
 文字和例子从这里引用[Cocoa Naming Guidelines](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE)
 
+<b id="conditionals"></b>
 ## 条件语句
 
-Conditional bodies should always use braces even when a conditional body could be written without braces (e.g., it is one line only) to prevent errors. These errors include adding a second line and expecting it to be part of the if-statement. Another, [even more dangerous defect](http://programmers.stackexchange.com/a/16530) may happen where the line "inside" the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
+条件语句主体为了防止出错应该使用大括号包围，即使条件语句主体能够不用大括号编写(如，只用一行代码)。这些错误包括添加第二行代码和期望它成为if语句；还有，[even more dangerous defect](http://programmers.stackexchange.com/a/16530)可能发生在if语句里面一行代码被注释了，然后下一行代码不知不觉地成为if语句的一部分。除此之外，这种风格与其他条件语句的风格保持一致，所以更加容易阅读。
 
 **应该:**
+
 ```objc
 if (!error) {
   return success;
@@ -545,22 +547,24 @@ if (!error) {
 ```
 
 **不应该:**
+
 ```objc
 if (!error)
   return success;
 ```
 
-or
+或
 
 ```objc
 if (!error) return success;
 ```
 
-### Ternary Operator
+<b id="ternary-operator"></b>
+### 三元操作符
 
-The Ternary operator, `?:` , should only be used when it increases clarity or code neatness. A single condition is usually all that should be evaluated. Evaluating multiple conditions is usually more understandable as an `if` statement, or refactored into instance variables. In general, the best use of the ternary operator is during assignment of a variable and deciding which value to use.
+当需要提高代码的清晰性和简洁性时，三元操作符`?:`才会使用。单个条件求值常常需要它。多个条件求值时，如果使用`if`语句或重构成实例变量时，代码会更加易读。一般来说，最好使用三元操作符是在根据条件来赋值的情况下。
 
-Non-boolean variables should be compared against something, and parentheses are added for improved readability.  If the variable being compared is a boolean type, then no parentheses are needed.
+Non-boolean的变量与某东西比较，加上括号()会提高可读性。如果被比较的变量是boolean类型，那么就不需要括号。
 
 **应该:**
 ```objc
