@@ -599,17 +599,18 @@ Init方法应该遵循Apple生成代码模板的命名规则。返回类型应�
 
 查看关于instancetype的文章[Class Constructor Methods](#class-constructor-methods)
 
+<b id="class-constructor-methods"></b>
 ## 类构造方法
 
-Where class constructor methods are used, these should always return type of 'instancetype' and never 'id'. This ensures the compiler correctly infers the result type. 
+当类构造方法被使用时，它应该返回类型是`instancetype `而不是`id`。这样确保编译器正确地推断结果类型。
+
 
 ```objc
 @interface Airplane
 + (instancetype)airplaneWithType:(RWTAirplaneType)type;
 @end
 ```
-
-More information on instancetype can be found on [NSHipster.com](http://nshipster.com/instancetype/).
+关于更多instancetype信息，请查看[NSHipster.com](http://nshipster.com/instancetype/)
 
 ## CGRect函数
 
