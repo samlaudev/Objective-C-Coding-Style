@@ -322,22 +322,25 @@ NSString应该使用`copy` 而不是 `strong`的属性特性。
 
 ```objc
 @property (strong, nonatomic) NSString *tutorialName;
-```
+```不
 
+<b id="dot-notation-syntax"></b>
 ## 点符号语法
 
-Dot syntax is purely a convenient wrapper around accessor method calls. When you use dot syntax, the property is still accessed or changed using getter and setter methods.  Read more [here](https://developer.apple.com/library/ios/documentation/cocoa/conceptual/ProgrammingWithObjectiveC/EncapsulatingData/EncapsulatingData.html)
+点语法是一种很方便封装访问方法调用的方式。当你使用点语法时，通过使用getter或setter方法，属性仍然被访问或修改。想了解更多，阅读[这里](https://developer.apple.com/library/ios/documentation/cocoa/conceptual/ProgrammingWithObjectiveC/EncapsulatingData/EncapsulatingData.html)
 
-Dot-notation should **always** be used for accessing and mutating properties, as it makes code more concise. Bracket notation is preferred in all other instances.
+点语法应该**总是**被用来访问和修改属性，因为它使代码更加简洁。[]符号更偏向于用在其他例子。
 
-**Preferred:**
+
+
+**应该:**
 ```objc
 NSInteger arrayCount = [self.array count];
 view.backgroundColor = [UIColor orangeColor];
 [UIApplication sharedApplication].delegate;
 ```
 
-**Not Preferred:**
+**不应该:**
 ```objc
 NSInteger arrayCount = self.array.count;
 [view setBackgroundColor:[UIColor orangeColor]];
@@ -348,7 +351,7 @@ UIApplication.sharedApplication.delegate;
 
 `NSString`, `NSDictionary`, `NSArray`, and `NSNumber` literals should be used whenever creating immutable instances of those objects. Pay special care that `nil` values can not be passed into `NSArray` and `NSDictionary` literals, as this will cause a crash.
 
-**Preferred:**
+**应该:**
 
 ```objc
 NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
@@ -357,7 +360,7 @@ NSNumber *shouldUseLiterals = @YES;
 NSNumber *buildingStreetNumber = @10018;
 ```
 
-**Not Preferred:**
+**不应该:**
 
 ```objc
 NSArray *names = [NSArray arrayWithObjects:@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul", nil];
@@ -368,9 +371,9 @@ NSNumber *buildingStreetNumber = [NSNumber numberWithInteger:10018];
 
 ## 常量
 
-Constants are preferred over in-line string literals or numbers, as they allow for easy reproduction of commonly used variables and can be quickly changed without the need for find and replace. Constants should be declared as `static` constants and not `#define`s unless explicitly being used as a macro.
+Constants are 应该 over in-line string literals or numbers, as they allow for easy reproduction of commonly used variables and can be quickly changed without the need for find and replace. Constants should be declared as `static` constants and not `#define`s unless explicitly being used as a macro.
 
-**Preferred:**
+**应该:**
 
 ```objc
 static NSString * const RWTAboutViewControllerCompanyName = @"RayWenderlich.com";
@@ -378,7 +381,7 @@ static NSString * const RWTAboutViewControllerCompanyName = @"RayWenderlich.com"
 static CGFloat const RWTImageThumbnailHeight = 50.0;
 ```
 
-**Not Preferred:**
+**不应该:**
 
 ```objc
 #define CompanyName @"RayWenderlich.com"
@@ -413,7 +416,7 @@ typedef NS_ENUM(NSInteger, RWTGlobalConstants) {
 
 Older k-style constant definitions should be **avoided** unless writing CoreFoundation C code (unlikely).
 
-**Not Preferred:**
+**不应该:**
 
 ```objc
 enum GlobalConstants {
@@ -505,14 +508,14 @@ Objective-C uses `YES` and `NO`.  Therefore `true` and `false` should only be us
 
 This allows for more consistency across files and greater visual clarity.
 
-**Preferred:**
+**应该:**
 
 ```objc
 if (someObject) {}
 if (![anotherObject boolValue]) {}
 ```
 
-**Not Preferred:**
+**不应该:**
 
 ```objc
 if (someObject == nil) {}
@@ -532,14 +535,14 @@ Text and example taken from the [Cocoa Naming Guidelines](https://developer.appl
 
 Conditional bodies should always use braces even when a conditional body could be written without braces (e.g., it is one line only) to prevent errors. These errors include adding a second line and expecting it to be part of the if-statement. Another, [even more dangerous defect](http://programmers.stackexchange.com/a/16530) may happen where the line "inside" the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
 
-**Preferred:**
+**应该:**
 ```objc
 if (!error) {
   return success;
 }
 ```
 
-**Not Preferred:**
+**不应该:**
 ```objc
 if (!error)
   return success;
@@ -557,7 +560,7 @@ The Ternary operator, `?:` , should only be used when it increases clarity or co
 
 Non-boolean variables should be compared against something, and parentheses are added for improved readability.  If the variable being compared is a boolean type, then no parentheses are needed.
 
-**Preferred:**
+**应该:**
 ```objc
 NSInteger value = 5;
 result = (value != 0) ? x : y;
@@ -566,7 +569,7 @@ BOOL isHorizontal = YES;
 result = isHorizontal ? x : y;
 ```
 
-**Not Preferred:**
+**不应该:**
 ```objc
 result = a > b ? x = c > d ? c : d : y;
 ```
@@ -605,7 +608,7 @@ When accessing the `x`, `y`, `width`, or `height` of a `CGRect`, always use the 
 
 > All functions described in this reference that take CGRect data structures as inputs implicitly standardize those rectangles before calculating their results. For this reason, your applications should avoid directly reading and writing the data stored in the CGRect data structure. Instead, use the functions described here to manipulate rectangles and to retrieve their characteristics.
 
-**Preferred:**
+**应该:**
 
 ```objc
 CGRect frame = self.view.frame;
@@ -617,7 +620,7 @@ CGFloat height = CGRectGetHeight(frame);
 CGRect frame = CGRectMake(0.0, 0.0, width, height);
 ```
 
-**Not Preferred:**
+**不应该:**
 
 ```objc
 CGRect frame = self.view.frame;
@@ -633,7 +636,7 @@ CGRect frame = (CGRect){ .origin = CGPointZero, .size = frame.size };
 
 When coding with conditionals, the left hand margin of the code should be the "golden" or "happy" path.  That is, don't nest `if` statements.  Multiple return statements are OK.
 
-**Preferred:**
+**应该:**
 
 ```objc
 - (void)someMethod {
@@ -645,7 +648,7 @@ When coding with conditionals, the left hand margin of the code should be the "g
 }
 ```
 
-**Not Preferred:**
+**不应该:**
 
 ```objc
 - (void)someMethod {
@@ -659,7 +662,7 @@ When coding with conditionals, the left hand margin of the code should be the "g
 
 When methods return an error parameter by reference, switch on the returned value, not the error variable.
 
-**Preferred:**
+**应该:**
 ```objc
 NSError *error;
 if (![self trySomethingWithError:&error]) {
@@ -667,7 +670,7 @@ if (![self trySomethingWithError:&error]) {
 }
 ```
 
-**Not Preferred:**
+**不应该:**
 ```objc
 NSError *error;
 [self trySomethingWithError:&error];
@@ -714,14 +717,14 @@ self.productsRequest = [[SKProductsRequest alloc]
 
 ## Smiley Face
 
-Smiley faces are a very prominent style feature of the raywenderlich.com site!  It is very important to have the correct smile signifying the immense amount of happiness and excitement for the coding topic.  The end square bracket is used because it represents the largest smile able to be captured using ascii art.  A half-hearted smile is represented if an end parenthesis is used, and thus not preferred.
+Smiley faces are a very prominent style feature of the raywenderlich.com site!  It is very important to have the correct smile signifying the immense amount of happiness and excitement for the coding topic.  The end square bracket is used because it represents the largest smile able to be captured using ascii art.  A half-hearted smile is represented if an end parenthesis is used, and thus not 应该.
 
-**Preferred:**
+**应该:**
 ```objc
 :]
 ```
 
-**Not Preferred:**
+**不应该:**
 ```objc
 :)
 ```  
