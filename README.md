@@ -567,6 +567,7 @@ if (!error) return success;
 Non-boolean的变量与某东西比较，加上括号()会提高可读性。如果被比较的变量是boolean类型，那么就不需要括号。
 
 **应该:**
+
 ```objc
 NSInteger value = 5;
 result = (value != 0) ? x : y;
@@ -576,13 +577,15 @@ result = isHorizontal ? x : y;
 ```
 
 **不应该:**
+
 ```objc
 result = a > b ? x = c > d ? c : d : y;
 ```
 
+<b id="init-methods"></b>
 ## Init方法
 
-Init methods should follow the convention provided by Apple's generated code template.  A return type of 'instancetype' should also be used instead of 'id'.
+Init方法应该遵循Apple生成代码模板的命名规则。返回类型应该使用`instancetype`而不是`id`
 
 ```objc
 - (instancetype)init {
@@ -594,7 +597,7 @@ Init methods should follow the convention provided by Apple's generated code tem
 }
 ```
 
-See [Class Constructor Methods](#class-constructor-methods) for link to article on instancetype.
+查看关于instancetype的文章[Class Constructor Methods](#class-constructor-methods)
 
 ## 类构造方法
 
