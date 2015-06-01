@@ -372,7 +372,7 @@ NSNumber *buildingStreetNumber = [NSNumber numberWithInteger:10018];
 
 ## 常量
 
-Constants are 应该 over in-line string literals or numbers, as they allow for easy reproduction of commonly used variables and can be quickly changed without the need for find and replace. Constants should be declared as `static` constants and not `#define`s unless explicitly being used as a macro.
+常量是容易重复被使用和无需通过查找和代替就能快速修改值。常量应该使用`static`来声明而不是使用`#define`，除非显式地使用宏。
 
 **应该:**
 
