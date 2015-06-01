@@ -502,11 +502,12 @@ switch (menuType) {
 @end
 ```
 
-## Booleans
+<b id="booleans"></b>
+## 布尔值
 
-Objective-C uses `YES` and `NO`.  Therefore `true` and `false` should only be used for CoreFoundation, C or C++ code.  Since `nil` resolves to `NO` it is unnecessary to compare it in conditions. Never compare something directly to `YES`, because `YES` is defined to 1 and a `BOOL` can be up to 8 bits.
+Objective-C使用`YES`和`NO`。因为`true`和`false`应该只在CoreFoundation，C或C++代码使用。既然`nil`解析成`NO`，所以没有必要在条件语句比较。不要拿某样东西直接与`YES`比较，因为`YES`被定义为1和一个`BOOL`能被设置为8位。
 
-This allows for more consistency across files and greater visual clarity.
+这是为了在不同文件保持一致性和在视觉上更加简洁而考虑。
 
 **应该:**
 
@@ -524,12 +525,13 @@ if (isAwesome == YES) {} // Never do this.
 if (isAwesome == true) {} // Never do this.
 ```
 
-If the name of a `BOOL` property is expressed as an adjective, the property can omit the “is” prefix but specifies the conventional name for the get accessor, for example:
+如果`BOOL`属性的名字是一个形容词，属性就能忽略"is"前缀，但要指定get访问器的惯用名称。例如：
 
 ```objc
 @property (assign, getter=isEditable) BOOL editable;
 ```
-Text and example taken from the [Cocoa Naming Guidelines](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE).
+
+文字和例子从这里引用[Cocoa Naming Guidelines](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE)
 
 ## 条件语句
 
