@@ -671,9 +671,10 @@ CGRect frame = (CGRect){ .origin = CGPointZero, .size = frame.size };
 }
 ```
 
+<b id="error-handling"></b>
 ## 错误处理
 
-When methods return an error parameter by reference, switch on the returned value, not the error variable.
+当方法通过引用来返回一个错误参数，判断返回值而不是错误变量。
 
 **应该:**
 ```objc
@@ -692,8 +693,7 @@ if (error) {
 }
 ```
 
-Some of Apple’s APIs write garbage values to the error parameter (if non-NULL) in successful cases, so switching on the error can cause false negatives (and subsequently crash).
-
+在成功的情况下，有些Apple的APIs记录垃圾值(garbage values)到错误参数(如果non-NULL)，那么判断错误值会导致false负值和crash。
 
 ## 单例模式
 
