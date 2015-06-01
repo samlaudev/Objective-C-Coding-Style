@@ -739,10 +739,9 @@ self.productsRequest = [[SKProductsRequest alloc]
 
 尽可能在target的Build Settings打开"Treat Warnings as Errors，和启用以下[additional warnings](http://boredzo.org/blog/archives/2009-11-07/warnings)。如果你需要忽略特殊的警告，使用 [Clang's pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas)。
 
-
 # 其他Objective-C编码规范
 
-If ours doesn't fit your tastes, have a look at some other style guides:
+如果我们的编码规范不符合你的口味，可以查看其他的编码规范：
 
 * [Robots & Pencils](https://github.com/RobotsAndPencils/objective-c-style-guide)
 * [New York Times](https://github.com/NYTimes/objective-c-style-guide)
