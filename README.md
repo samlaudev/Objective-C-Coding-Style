@@ -715,16 +715,19 @@ if (error) {
 
 这会防止[possible and sometimes prolific crashes](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
 
-
+<b id="line-breaks"></b>
 ## 换行符
 
-Line breaks are an important topic since this style guide is focused for print and online readability.
+换行符是一个很重要的主题，因为它的风格指南主要为了打印和网上的可读性。
 
-For example:
+例如:
+
 ```objc
 self.productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:productIdentifiers];
 ```
-A long line of code like this should be carried on to the second line adhering to this style guide's Spacing section (two spaces).
+
+一行很长的代码应该分成两行代码，下一行用两个空格隔开。
+
 ```objc
 self.productsRequest = [[SKProductsRequest alloc] 
   initWithProductIdentifiers:productIdentifiers];
