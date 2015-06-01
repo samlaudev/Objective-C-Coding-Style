@@ -695,9 +695,11 @@ if (error) {
 
 在成功的情况下，有些Apple的APIs记录垃圾值(garbage values)到错误参数(如果non-NULL)，那么判断错误值会导致false负值和crash。
 
+<b id="singletons"></b>
 ## 单例模式
 
-Singleton objects should use a thread-safe pattern for creating their shared instance.
+单例对象应该使用线程安全模式来创建共享实例。
+
 ```objc
 + (instancetype)sharedInstance {
   static id sharedInstance = nil;
@@ -710,7 +712,8 @@ Singleton objects should use a thread-safe pattern for creating their shared ins
   return sharedInstance;
 }
 ```
-This will prevent [possible and sometimes prolific crashes](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
+
+这会防止[possible and sometimes prolific crashes](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
 
 
 ## 换行符
