@@ -485,12 +485,12 @@ switch (menuType) {
 }
 ```
 
-
+<b id="private-properties"></b>
 ## 私有属性
 
-Private properties should be declared in class extensions (anonymous categories) in the implementation file of a class. Named categories (such as `RWTPrivate` or `private`) should never be used unless extending another class.   The Anonymous category can be shared/exposed for testing using the <headerfile>+Private.h file naming convention.
+私有属性应该在类的实现文件中的类扩展(匿名分类)中声明，命名分类(比如`RWTPrivate `或`private`)应该从不使用除非是扩展其他类。匿名分类应该通过使用<headerfile>+Private.h文件的命名规则暴露给测试。
 
-**For Example:**
+**例如:**
 
 ```objc
 @interface RWTDetailViewController ()
