@@ -369,7 +369,7 @@ NSDictionary *productManagers = [NSDictionary dictionaryWithObjectsAndKeys: @"Ka
 NSNumber *shouldUseLiterals = [NSNumber numberWithBool:YES];
 NSNumber *buildingStreetNumber = [NSNumber numberWithInteger:10018];
 ```
-
+<b id="constants"></b>
 ## 常量
 
 常量是容易重复被使用和无需通过查找和代替就能快速修改值。常量应该使用`static`来声明而不是使用`#define`，除非显式地使用宏。
@@ -389,12 +389,12 @@ static CGFloat const RWTImageThumbnailHeight = 50.0;
 
 #define thumbnailHeight 2
 ```
-
+<b id="enumerated-types"></b>
 ## 枚举类型
 
-When using `enum`s, it is recommended to use the new fixed underlying type specification because it has stronger type checking and code completion. The SDK now includes a macro to facilitate and encourage use of fixed underlying types: `NS_ENUM()`
+当使用`enum`时，推荐使用新的固定基本类型规格，因为它有更强的类型检查和代码补全。现在SDK有一个宏`NS_ENUM()`来帮助和鼓励你使用固定的基本类型。
 
-**For Example:**
+**例如:**
 
 ```objc
 typedef NS_ENUM(NSInteger, RWTLeftMenuTopItemType) {
@@ -404,7 +404,7 @@ typedef NS_ENUM(NSInteger, RWTLeftMenuTopItemType) {
 };
 ```
 
-You can also make explicit value assignments (showing older k-style constant definition):
+你也可以显式地赋值(展示旧的k-style常量定义)：
 
 ```objc
 typedef NS_ENUM(NSInteger, RWTGlobalConstants) {
@@ -415,7 +415,7 @@ typedef NS_ENUM(NSInteger, RWTGlobalConstants) {
 };
 ```
 
-Older k-style constant definitions should be **avoided** unless writing CoreFoundation C code (unlikely).
+旧的k-style常量定义应该**避免**除非编写Core Foundation C的代码。
 
 **不应该:**
 
