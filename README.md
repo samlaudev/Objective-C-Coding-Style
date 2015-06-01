@@ -644,9 +644,10 @@ CGFloat height = frame.size.height;
 CGRect frame = (CGRect){ .origin = CGPointZero, .size = frame.size };
 ```
 
+<b id="golden-path"></b>
 ## 黄金路径
 
-When coding with conditionals, the left hand margin of the code should be the "golden" or "happy" path.  That is, don't nest `if` statements.  Multiple return statements are OK.
+当使用条件语句编码时，左手边的代码应该是"golden" 或 "happy"路径。也就是不要嵌套`if`语句，多个返回语句也是OK。
 
 **应该:**
 
