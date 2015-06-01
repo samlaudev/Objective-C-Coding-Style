@@ -1,6 +1,6 @@
 # raywenderlich.com Objective-C编码规范
 
-这篇编码风格指南概括了raywenderlich.com的编码规范。
+这篇编码风格指南概括了raywenderlich.com的编码规范，可能有些删减或修改。
 
 ## 介绍
 
@@ -51,7 +51,6 @@
 * [错误处理](#error-handling)
 * [单例模式](#singletons)
 * [换行符](#line-breaks)
-* [表情符号](#smiley-face)
 * [Xcode工程](#xcode-project)
 
 <b id="language"></b>
@@ -733,27 +732,13 @@ self.productsRequest = [[SKProductsRequest alloc]
   initWithProductIdentifiers:productIdentifiers];
 ```
 
-
-## Smiley Face
-
-Smiley faces are a very prominent style feature of the raywenderlich.com site!  It is very important to have the correct smile signifying the immense amount of happiness and excitement for the coding topic.  The end square bracket is used because it represents the largest smile able to be captured using ascii art.  A half-hearted smile is represented if an end parenthesis is used, and thus not 应该.
-
-**应该:**
-```objc
-:]
-```
-
-**不应该:**
-```objc
-:)
-```  
-
-
+<b id="xcode-project"></b>
 ## Xcode工程
 
-The physical files should be kept in sync with the Xcode project files in order to avoid file sprawl. Any Xcode groups created should be reflected by folders in the filesystem. Code should be grouped not only by type, but also by feature for greater clarity.
+物理文件应该与Xcode工程文件保持同步来避免文件扩张。任何Xcode分组的创建应该在文件系统的文件体现。代码不仅是根据**类型**来分组，而且还可以根据**功能**来分组，这样代码更加清晰。
 
-When possible, always turn on "Treat Warnings as Errors" in the target's Build Settings and enable as many [additional warnings](http://boredzo.org/blog/archives/2009-11-07/warnings) as possible. If you need to ignore a specific warning, use [Clang's pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
+尽可能在target的Build Settings打开"Treat Warnings as Errors，和启用以下[additional warnings](http://boredzo.org/blog/archives/2009-11-07/warnings)。如果你需要忽略特殊的警告，使用 [Clang's pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas)。
+
 
 # 其他Objective-C编码规范
 
