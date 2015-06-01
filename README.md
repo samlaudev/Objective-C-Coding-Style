@@ -39,7 +39,7 @@
 * [字面值](#literals)
 * [常量](#constants)
 * [枚举类型](#enumerated-types)
-* [Case语法](#case-statements)
+* [Case语句](#case-statements)
 * [私有属性](#private-properties)
 * [布尔值](#booleans)
 * [条件语法](#conditionals)
@@ -426,11 +426,10 @@ enum GlobalConstants {
 };
 ```
 
-
+<b id="case-statements"></b>
 ## Case语句
 
-Braces are not required for case statements, unless enforced by the complier.  
-When a case contains more than one line, braces should be added.
+大括号在case语句中并不是必须的，除非编译器强制要求。当一个case语句包含多行代码时，大括号应该加上。
 
 ```objc
 switch (condition) {
@@ -451,8 +450,8 @@ switch (condition) {
 }
 
 ```
+有很多次，当相同代码被多个cases使用时，一个fall-through应该被使用。一个fall-through就是在case最后移除'break'语句，这样就能够允许执行流程跳转到下一个case值。为了代码更加清晰，一个fall-through需要注释一下。
 
-There are times when the same code can be used for multiple cases, and a fall-through should be used.  A fall-through is the removal of the 'break' statement for a case thus allowing the flow of execution to pass to the next case value.  A fall-through should be commented for coding clarity.
 
 ```objc
 switch (condition) {
@@ -468,7 +467,7 @@ switch (condition) {
 
 ```
 
-When using an enumerated type for a switch, 'default' is not needed.   For example:
+当在switch使用枚举类型时，'default'是不需要的。例如：
 
 ```objc
 RWTLeftMenuTopItemType menuType = RWTLeftMenuTopItemMain;
