@@ -77,7 +77,6 @@ UIColor *myColour = [UIColor whiteColor];
 
 ```objc
 #pragma mark - Lifecycle
-
 - (instancetype)init {}
 - (void)dealloc {}
 - (void)viewDidLoad {}
@@ -85,34 +84,30 @@ UIColor *myColour = [UIColor whiteColor];
 - (void)didReceiveMemoryWarning {}
 
 #pragma mark - Custom Accessors
-
 - (void)setCustomProperty:(id)value {}
 - (id)customProperty {}
 
-#pragma mark - IBActions
-
+#pragma mark - IBActions/Event Response
 - (IBAction)submitData:(id)sender {}
-
-#pragma mark - Public
-
-- (void)publicMethod {}
-
-#pragma mark - Private
-
-- (void)privateMethod {}
+- (void)someButtonDidPressed:(UIButton*)button
 
 #pragma mark - Protocol conformance
 #pragma mark - UITextFieldDelegate
 #pragma mark - UITableViewDataSource
 #pragma mark - UITableViewDelegate
 
-#pragma mark - NSCopying
+#pragma mark - Public
+- (void)publicMethod {}
 
+#pragma mark - Private
+- (void)privateMethod {}
+
+#pragma mark - NSCopying
 - (id)copyWithZone:(NSZone *)zone {}
 
 #pragma mark - NSObject
-
 - (NSString *)description {}
+
 ```
 
 <b id="spacing"></b>
